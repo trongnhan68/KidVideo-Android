@@ -12,17 +12,17 @@ import android.view.ViewGroup;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
-public class MainActivity extends YouTubeFailureRecoveryActivity {
+public class MainActivity extends YouTubeFailureRecoveryActivity implements YouTubePlayer.OnInitializedListener  {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		if (savedInstanceState == null) {
-			getFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
+//		if (savedInstanceState == null) {
+//			getFragmentManager().beginTransaction()
+//					.add(R.id.container, new PlaceholderFragment()).commit();
+//		}
 		
 		 YouTubePlayerView youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
 		    youTubeView.initialize(DeveloperKey.DEVELOPER_KEY, this);
@@ -31,7 +31,7 @@ public class MainActivity extends YouTubeFailureRecoveryActivity {
 	  public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player,
 	      boolean wasRestored) {
 	    if (!wasRestored) {
-	      player.cueVideo("wKJ9KzGQq0w");
+	      player.cueVideo("JwlPIxVrrC4");
 	    }
 	  }
 

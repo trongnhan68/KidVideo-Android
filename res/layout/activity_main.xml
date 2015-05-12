@@ -1,14 +1,93 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     tools:context="com.example.kidvideo.MainActivity"
     tools:ignore="MergeRootFrame" >
 
-    <com.google.android.youtube.player.YouTubePlayerView
-        android:id="@+id/youtube_view"
-        android:layout_width="300dp"
-        android:layout_height="200dp" />
+    <LinearLayout
+        android:id = "@+id/linear_left"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
 
-</FrameLayout>
+        <LinearLayout
+            android:id = "@+id/linear_YoutubePlayer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+         >
+     <FrameLayout 
+             android:id = "@+id/frame_list_video"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+         
+            <GridView
+                android:id="@+id/gridView1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                android:numColumns="3" >
+            </GridView>
+
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/youtube_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                
+                 />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id = "@+id/linear_info"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_list_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thu Vien" 
+                android:layout_weight="1"
+                />
+
+            <TextView
+                android:id="@+id/txtView_videoName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="Ca khuc tru tinh hay nhat" />
+
+            <Button
+                android:id="@+id/btn_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Menu" 
+                android:layout_weight="1"
+                />
+            
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id = "@+id/linear_right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/listView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </ListView>
+
+    </LinearLayout>
+
+</LinearLayout>
